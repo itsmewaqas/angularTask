@@ -1,0 +1,58 @@
+<div class="row">
+    <h4>Create Task</h4>
+</div>
+<form>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="form-label">Task name</label>
+            <input type="text" class="form-control form-control-sm" #taskName placeholder="taskName" />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Task Description</label>
+            <input type="text" class="form-control form-control-sm" #taskDescription placeholder="taskDescription" />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Start date</label>
+            <input type="date" class="form-control form-control-sm" #startDate placeholder="startDate" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">End date</label>
+            <input type="date" class="form-control form-control-sm" #endDate placeholder="endDate" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Assignee</label>
+            <input type="text" class="form-control form-control-sm" #assignee placeholder="assignee" />
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <button type="button"
+                (click)="addTask(taskName.value,taskDescription.value,startDate.value,endDate.value,assignee.value)"
+                class="btn btn-dark">Add Task</button>
+        </div>
+    </div>
+</form>
+<div class="col-md-12 mt-3">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Task name</th>
+                    <th>Task Description</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Assignee</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of taskList">
+                    <td>{{item.taskName}}</td>
+                    <td>{{item.taskDescription}}</td>
+                    <td>{{item.startDate}}</td>
+                    <td>{{item.endDate}}</td>
+                    <td>{{item.assignee}}</td>
+                    <td><a href="javascript:;" (click)="selectRow(item)">View Detail</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
